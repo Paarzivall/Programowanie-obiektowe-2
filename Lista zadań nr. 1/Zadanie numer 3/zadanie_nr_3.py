@@ -1,5 +1,3 @@
-
-
 class Account(object):
     def __init__(self, value):
         """Konstruktor parametrowy - tworzy nowe 'konto'"""
