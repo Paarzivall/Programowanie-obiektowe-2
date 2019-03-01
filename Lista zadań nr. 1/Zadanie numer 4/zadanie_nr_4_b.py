@@ -25,3 +25,4 @@ if action == 1:
     for j in zawartosc:
         """Wypisanie na ekran listy z zawartością pliku"""
         print(f"{j}")
+    file.close()
