@@ -3,67 +3,95 @@ class RocketEngine(object):
     all_power = 0
 
     def __init__(self, name, power, working=False):
-        self.name = name
-        self.power = power,
-        self.working = working
-        self.count += 1
+        """Konstruktor parametrowy klasy RocketEngine"""
+        self._name = name
+        self._power = power
+        self._working = working
+        RocketEngine.count += 1
 
-    def start(self, power):
-        if self.working == False:
-            self.all_power = power
-            self.working = True
+    def start(self):
+        """Start silnika rakiety"""
+        if self._working == False:
+            RocketEngine.all_power += self._power
+            self._working = True
 
     def stop(self):
-        if self.working == True:
-            self.all_power = self.power
-            self.working = False
+        """Zatrzymanie silnika"""
+        if self._working == True:
+            RocketEngine.all_power -= self._power
+            self._working = False
 
     def __str__(self):
-        return f"\t\tAll Power: {self.all_power},\n\t\tCount: {self.count}"
+        """Raportowanie o stanie silnika"""
+        if self._working == True:
+            work = "Tak"
+        else:
+            work = "Nie"
+        return f"Silnik o nazwie: {self._name},\nMoc: {self._power}, Stan: {work}"
 
     def __del__(self):
-        self.count = self.count - 1
+        """Usunięcie 'dematerializacja' silnika"""
+        RocketEngine.count -= 1
 
     @staticmethod
-    def status(x, y):
-        return f"{x},\n {y}"
+    def status():
+        """Wypisanie raportu o aktualnie działających silnikach"""
+        print(f"Silników pracujących: {RocketEngine.count},\nŁączna moc silników pracujących: {RocketEngine.all_power}")
 
 
 def symulacja():
-    print("\tAkcja:\tKosmiczny statek jest w porcie")
-    moc_silnika = 0
-    engine_1 = RocketEngine('Andromeda', moc_silnika)
-    engine_2 = RocketEngine('Andromeda', moc_silnika)
-    #print(f"{RocketEngine.status(engine_1, engine_2)}")
-    print(f"{engine_1}")
-    print(f"{engine_2}")
+    print("\t\tStatek jest w porcie")
 
-    print(f"\n\tAkcja:\tPrzeprowadzenie manewru")
-    moc_silnika = 50
-    engine_1.start(moc_silnika)
-    engine_2.start(moc_silnika)
-    print(f"{RocketEngine.status(engine_1, engine_2)}")
+    engine_1 = RocketEngine("Silnik manewrowy 1", 50)
+    engine_2 = RocketEngine("Silnik manewrowy 2", 50)
 
-    print(f"\n\tAkcja:\tRozpędzenie się")
-    moc_silnika = 500
+    print("\n\t\tPrzeprowadzanie manewrów:")
+    engine_1.start()
+    engine_2.start()
+    RocketEngine.status()
+
+    print("\n\t\tRozpędzenie statku w celu przejścia w hiperprędkość")
     engine_1.stop()
     engine_2.stop()
-    engine_3 = RocketEngine('Andromeda', moc_silnika)
-    engine_4 = RocketEngine('Andromeda', moc_silnika)
-    engine_3.start(moc_silnika)
-    engine_4.start(moc_silnika)
-    print(f"{RocketEngine.status(engine_3, engine_4)}")
+    engine_3 = RocketEngine("Silnik rozpędzający 1", 500)
+    engine_4 = RocketEngine("Silnik rozpędzający 2", 500)
+    engine_3.start()
+    engine_4.start()
+    RocketEngine.status()
 
-    print(f"\n\tAkcja:\tPrzejście w hipernapęd")
-    moc_silnika = 400000
+    print("\n\t\tLot w hiperprędkości")
     engine_3.stop()
     engine_4.stop()
-    engine_5 = RocketEngine('Andromeda', moc_silnika)
-    engine_6 = RocketEngine('Andromeda', moc_silnika)
-    engine_5.start(moc_silnika)
-    engine_6.start(moc_silnika)
-    print(f"{RocketEngine.status(engine_5, engine_6)}")
+    engine_5 = RocketEngine("Silnik hiperprędkości 1", 400000)
+    engine_6 = RocketEngine("Silnik hiperprędkości 2", 400000)
+    engine_5.start()
+    engine_6.start()
+    RocketEngine.status()
 
-    
+    print("\n\t\tZmniejszenie prędkości")
+    engine_5.stop()
+    engine_6.stop()
+    del engine_5
+    del engine_6
+    engine_3.start()
+    engine_4.start()
+    RocketEngine.status()
+
+    print("\n\t\tManewrowanie")
+    engine_3.stop()
+    engine_4.stop()
+    del engine_3
+    del engine_4
+    engine_1.start()
+    engine_2.start()
+    RocketEngine.status()
+
+    print("\n\t\tCumowanie w porcie")
+    engine_1.stop()
+    engine_2.stop()
+    """Czy silniki do manewrowania powinny być usuwane?"""
+    del engine_1
+    del engine_2
+    RocketEngine.status()
 
 symulacja()
