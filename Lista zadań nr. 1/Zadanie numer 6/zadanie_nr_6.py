@@ -4,9 +4,31 @@ class TV:
     glos_min = 0
     glos_max = 70
 
-    def __init__(self, kanal, glos):
-        self._kanal = kanal
-        self._glos = glos
+    def __init__(self, kanal, volume):
+        self.kanal = kanal
+        self.glos = volume
+
+    @property
+    def kanal(self):
+        return self._kanal
+
+    @property
+    def glos(self):
+        return self._glos
+
+    @glos.setter
+    def glos(self, value):
+        if isinstance(value, int) and TV.glos_min <= value <= TV.glos_max:
+            self._glos = value
+        else:
+            self.glos = 1
+
+    @kanal.setter
+    def kanal(self, value):
+        if isinstance(value, int) and TV.kanal_min <= value <= TV.kanal_max:
+            self._kanal = value
+        else:
+            self.kanal = 1
 
     def __str__(self):
         return f"Włączono kanał: {self._kanal}, Głośność: {self._glos}"
@@ -25,7 +47,6 @@ class TV:
                     action = 0
                 else:
                     print(f"Kanał o numerze: {kanal} nie istnieje. Podaj inny numer kanału!")
-
 
     def zmien_glos(self, glos):
         if TV.glos_min <= glos <= TV.glos_max and glos != self._glos:

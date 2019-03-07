@@ -1,7 +1,6 @@
 import zadanie_nr_4
 
-ile = input("Podaj ilość elementów listy:")
-ile = int(ile)
+ile = int(input("Podaj ilość elementów listy:"))
 
 obiekty = []
 
@@ -10,7 +9,7 @@ for i in range(ile):
     model = input(f"Podaj model telefonu: ")
     price = input(f"Podaj cenę telefonu: ")
     obiekty.append(zadanie_nr_4.Smartphone(manufacturer, model, price))
-    #print(obiekty[i])
+    # print(obiekty[i])
 
 
 action = input("[1] Wyświetl listę,\n[2] Zakończ\n")

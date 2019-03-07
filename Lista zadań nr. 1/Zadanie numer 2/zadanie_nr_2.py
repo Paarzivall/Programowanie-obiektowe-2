@@ -4,10 +4,7 @@ import random
 class Coin(object):
     def __init__(self):
         """Konstruktor bezparametrowy"""
-        if random.randrange(2) == 0:
-            self.side = "orzeł"
-        else:
-            self.side = "reszka"
+        self.throw()
 
     def throw(self):
         """Wylosowanie strony monety"""
