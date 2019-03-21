@@ -13,8 +13,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Lista zadań nr. 2/Zadanie numer 1/zadanie_nr_1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+            <state relative-caret-position="187">
+              <caret line="11" column="31" lean-forward="true" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -49,9 +49,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
-    <option name="width" value="697" />
+    <option name="width" value="853" />
     <option name="height" value="735" />
   </component>
   <component name="ProjectView">
@@ -59,7 +59,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -108,10 +107,22 @@
               <item name="Lista zadań nr. 1" type="462c0819:PsiDirectoryNode" />
               <item name="Zadanie numer 7" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Programowanie-obiektowe-2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Programowanie-obiektowe-2" type="462c0819:PsiDirectoryNode" />
+              <item name="Lista zadań nr. 2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Programowanie-obiektowe-2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Programowanie-obiektowe-2" type="462c0819:PsiDirectoryNode" />
+              <item name="Lista zadań nr. 2" type="462c0819:PsiDirectoryNode" />
+              <item name="Zadanie numer 1" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -130,7 +141,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.zadanie_nr_1">
+  <component name="RunManager" selected="Python.zadanie_nr_7">
     <configuration name="zadanie_nr_1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Programowanie-obiektowe-2" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -144,27 +155,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Lista zadań nr. 2/Zadanie numer 1/zadanie_nr_1.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="zadanie_nr_2" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Programowanie-obiektowe-2" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Lista zadań nr. 1/Zadanie numer 2" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Lista zadań nr. 1/Zadanie numer 2/zadanie_nr_2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -236,13 +226,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="zadanie_nr_7" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Programowanie-obiektowe-2" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Lista zadań nr. 1/Zadanie numer 7" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Lista zadań nr. 1/Zadanie numer 7/zadanie_nr_7.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.zadanie_nr_7" />
         <item itemvalue="Python.zadanie_nr_1" />
         <item itemvalue="Python.zadanie_nr_6" />
         <item itemvalue="Python.zadanie_nr_5" />
         <item itemvalue="Python.zadanie_nr_3" />
-        <item itemvalue="Python.zadanie_nr_2" />
       </list>
     </recent_temporary>
   </component>
@@ -268,16 +279,16 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="697" height="735" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10015175" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16443452" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.33060557" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.22259136" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33060557" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.41734862" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -369,13 +380,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Lista zadań nr. 1/Zadanie numer 7/zadanie_nr_7.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="58" column="42" selection-start-line="58" selection-start-column="42" selection-end-line="58" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Lista zadań nr. 1/Zadanie numer 6/zadanie_nr_6.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -383,10 +387,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Lista zadań nr. 1/Zadanie numer 7/zadanie_nr_7.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-374">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Lista zadań nr. 2/Zadanie numer 1/zadanie_nr_1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+        <state relative-caret-position="187">
+          <caret line="11" column="31" lean-forward="true" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
         </state>
       </provider>
     </entry>
