@@ -1,9 +1,9 @@
 class Person(object):
 
-    def __init__(self):
-        self.name = input("Podaj imie:\t")
-        self.surname = input("Podaj nazwisko:\t")
-        self.age = int(input("Podaj wiek:\t"))
+    def __init__(self, name, surname, age):
+        self.name = name
+        self.surname = surname
+        self.age = age
 
     @property
     def name(self):
@@ -44,9 +44,9 @@ class Person(object):
 
 class Student(Person):
 
-    def __init__(self):
-        Person.__init__(self)
-        self.field_of_study = input("Podaj kierunek studiów:\t")
+    def __init__(self, name, surname, age, field_of_study):
+        Person.__init__(self, name, surname, age)
+        self.field_of_study = field_of_study
         self.student_book = {}
         self.add_student_book()
 
@@ -77,9 +77,9 @@ class Student(Person):
 
 class Employee(Person):
 
-    def __init__(self):
-        Person.__init__(self)
-        self.job_title = input("Podaj zawód:\t")
+    def __init__(self, name, surname, age, job_title):
+        Person.__init__(self, name, surname, age)
+        self.job_title = job_title
         self.skills = []
         self.add_skills()
 
@@ -106,14 +106,22 @@ def menu():
     while True:
         action = int(input("[1] Dodaj studenta,\n[2] Wyświetl studentów\n[3] Dodaj pracownika\n[4] Wyświetl pracowników\n[5] Zakończ"))
         if action == 1:
-            person = Student()
+            name = input("Podaj imie:\t")
+            surname = input("Podaj nazwisko:\t")
+            age = int(input("Podaj wiek:\t"))
+            field_of_study = input("Podaj kierunek studiów:\t")
+            person = Student(name, surname, age, field_of_study)
             student_list.append(person)
         elif action == 2:
             print("\n\n\t\t\tStudenci")
             for student in student_list:
                 print(student)
         elif action == 3:
-            person = Employee()
+            name = input("Podaj imie:\t")
+            surname = input("Podaj nazwisko:\t")
+            age = int(input("Podaj wiek:\t"))
+            job_title = input("Podaj zawód:\t")
+            person = Employee(name, surname, age, job_title)
             employee_list.append(person)
         elif action == 4:
             print("\n\n\t\t\tPracownicy")
@@ -121,5 +129,6 @@ def menu():
                 print(employee)
         else:
             break
+
 
 if __name__ == '__main__':menu()
