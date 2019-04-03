@@ -16,6 +16,7 @@ def generator_liczb_pierwszych():
 
 def main():
     file = open("liczby.txt", "w+")
+
     for i in generator_liczb_pierwszych():
         print(i)
         tmp = str(i) + "\n"
