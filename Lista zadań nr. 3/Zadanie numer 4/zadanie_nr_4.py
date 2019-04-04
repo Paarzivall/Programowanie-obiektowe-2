@@ -3,9 +3,11 @@ def gen_time(start, stop, hop):
     czasStop = list(stop)
     czasHop = list(hop)
 
+    start = (czasStart[0], czasStart[1], czasStart[2])
+    yield start
+
     while True:
-        tupla = (czasStart[0], czasStart[1], czasStart[2])
-        yield tupla
+
         tmp_h = czasStart[0] + czasHop[0]
         tmp_min = czasStart[1] + czasHop[1]
         tmp_sec = czasStart[2] + czasHop[2]
@@ -26,6 +28,9 @@ def gen_time(start, stop, hop):
         else:
             czasStart[1] += czasHop[1]
 
+        tupla = (czasStart[0], czasStart[1], czasStart[2])
+        yield tupla
+
         if czasStart[0] >= czasStop[0]:
             if czasStart[1] >= czasStop[1]:
                 break
@@ -33,5 +38,5 @@ def gen_time(start, stop, hop):
 
 if __name__ == '__main__':
 
-    for time in gen_time((8, 10, 0), (10, 50, 15), (0, 15, 12)):
+    for time in gen_time((8, 10, 0), (8, 10, 16), (0, 0, 12)):
         print(time)
