@@ -1,37 +1,87 @@
 import hashlib
-
+import all_errors as errors
 
 class User(object):
     def __init__(self, username, password):
-        self.username = username
-        self.password = self._encrypt_password(password)
+        self._username = username
+        self._password = self._encrypt_password(password)
         self.is_logged = False
 
     def _encrypt_password(self, password):
-        return hashlib.sha256(password)
+        hasher = hashlib.sha256()
+        hasher.update(bytes(password, encoding="utf-8"))
+        return hasher.digest()
 
     def check_password(self, password):
-        if self.password == hashlib.sha256(password):
+        if self._password == self._encrypt_password(password):
             return True
         else:
             return False
 
-    def __str__(self):
-        return f"Login: {self.username},\tHasło: {self.password}"
+
+class Authenticator(object):
+    def __init__(self):
+        self.users = {}
+
+    def add_user(self, username, password):
+        if username in self.users:
+            raise errors.UsernameAlreadyExists()
+        elif len(password) <= 7:
+            raise errors.PasswordTooShort()
+        else:
+            self.users[username] = User(username, password)
+
+    def login(self, username, password):
+        if not username in self.users:
+            raise errors.IncorrectUsername()
+        elif not self.users[username].check_password(password):
+            raise errors.IncorrectPassword()
+        else:
+            self.users[username].is_logged = True
+            return True
+
+    def is_logged_in(self, username):
+        if not username in self.users:
+            raise  errors.IncorrectUsername()
+        else:
+            return self.users[username].is_logged
 
 
-class AuthenticException(Exception):
-    def __init__(self, username, password):
-        self.username = username
-        self.password = password
+class Authorizor(object):
+    def __init__(self, authenticator):
+        self.permissions = {}
+        self.authenticator = authenticator
+
+    def add_permission(self, permission):
+        if permission in self.permissions:
+            raise PermissionError()
+        else:
+            self.permissions[permission] = []
+
+    def permit_user(self, username, permission):
+        if not username in self.authenticator.users:
+            raise errors.IncorrectUsername()
+        elif not permission in self.permissions:
+            raise PermissionError()
+        else:
+            self.permissions[permission].append(username)
+
+    def check_permission(self, username, permission):
+        if not self.authenticator.is_logged_in(username):
+            raise errors.NotLoggedError()
+        elif not permission in self.permissions:
+            raise PermissionError()
+        elif not username in self.permissions[permission]:
+            raise errors.NotPermittedError()
+        else:
+            return True
 
 
-def menu():
-    user = User("ja", b"asdf")
-    print(user)
-
-    print(f"{user.check_password(b'asdf')}")
-
-
-if __name__ == '__main__':
-    menu()
+authenticator = Authenticator()
+authorizor = Authorizor(authenticator)
+authenticator.add_user("user1", "qwertyu123")
+authenticator.add_user("user2", "zxcv1234")
+authorizor.add_permission("test")
+authorizor.add_permission("change")
+authorizor.permit_user("user1", "test")
+authorizor.permit_user("user2", "change")
