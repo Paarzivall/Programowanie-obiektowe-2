@@ -1,20 +1,20 @@
 from zadanie_nr_4 import Rectangle, Cuboid
-import linecache
 
 
-file = open("dane.txt", "r")
-"""
+file = open("dane.txt", 'r').read()
+lines = file.split("\n")
+print(lines)
+
+for line in lines:
+    list(set(line))
+    if line[0] == '1':
+        print(line)
+        lin = line.split(" ")
+        for x in lin:
+            x = float(x)
+        print(type(line))
 
 
-for i in range(count):
-    lines = []
-    lines.append(linecache.getline("dane.txt", i))
-    print(lines)
-"""
-count = len(file.readlines())
-for i in range(count):
-    print(i)
-    print(file.readline(i))
 
 
-file.close()
+
