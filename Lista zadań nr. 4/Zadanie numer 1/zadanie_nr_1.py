@@ -64,7 +64,7 @@ class Student(Pupil):
         self.weights = {}
 
     def complete_weights(self, subject, rating, weight):
-        Pupil.complete_marks(subject, rating)
+        super().complete_marks(subject, rating)
         while True:
             if weight > self.weights_range[0] and weight <= self.weights_range[1]:
                 self.weights[subject] = weight
@@ -75,17 +75,17 @@ class Student(Pupil):
     def mean(self):
         sum_weights = 0
         sum_up = 0
-        for i in self.weights, self.marks:
+        for i in self.marks.keys():
             sum_weights += self.weights[i]
-            sum_up += self.weights[i] * self.marks[i]
+            sum_up += (self.weights[i] * self.marks[i])
         return sum_up / sum_weights
 
     def __str__(self):
-        return f"Imie: {self.__name}, Nazwisko: {self.__surname}, Średnia ocen:\t{self.mean()}"
+        return f"Imie: {super().name}, Nazwisko: {super().surname}, Średnia ocen:\t{self.mean()}"
 
 
 if __name__ == '__main__':
-    name = input("Podaj imie:\t")
+    """name = input("Podaj imie:\t")
     surname = input("Podaj nazwisko:\t")
     pupil = Pupil(name, surname)
     while True:
@@ -96,7 +96,7 @@ if __name__ == '__main__':
         if action != 1:
             break
     pupil.print_marks()
-    print(pupil)
+    print(pupil)"""
 
     name = input("Podaj imie:\t")
     surname = input("Podaj nazwisko:\t")
