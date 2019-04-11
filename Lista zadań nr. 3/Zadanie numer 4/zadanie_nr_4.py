@@ -38,5 +38,5 @@ def gen_time(start, stop, hop):
 
 if __name__ == '__main__':
 
-    for time in gen_time((8, 10, 0), (8, 10, 16), (0, 0, 12)):
+    for time in gen_time((8, 10, 0), (10, 50, 00), (0, 15, 12)):
         print(time)
