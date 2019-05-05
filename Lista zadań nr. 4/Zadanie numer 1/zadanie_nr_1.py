@@ -81,7 +81,7 @@ class Student(Pupil):
         return sum_up / sum_weights
 
     def __str__(self):
-        return f"Imie: {super().name}, Nazwisko: {super().surname}, Średnia ocen:\t{self.mean()}"
+        return  super().__str__()
 
 
 if __name__ == '__main__':
