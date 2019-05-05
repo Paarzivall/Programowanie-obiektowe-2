@@ -1,10 +1,12 @@
 import pygame
-from ResizeClass import Resize
+from MainClass import Game
+from FrameClass import Frame
 
 
-class Button(Resize):
+class Button(Game):
 
     def __init__(self):
+        self.board = pygame.display.get_surface()
         self.buttons = {'L': '../images/button_L.png', 'R': '../images/button_R.png', 'O': '../images/button_O.png'}
         self.buttons_light = {'L': '../images/button_L_light.png', 'R': '../images/button_R_light.png', 'O': '../images/button_O_light.png'}
         self.positions = {'L': (280, 165), 'R': (360, 165), 'O': (680, 165)}
@@ -12,7 +14,6 @@ class Button(Resize):
         self.action = {'L': 'Lewy', 'R': 'Prawy', 'O': 'Mieszaj'}
         self.add_buttons()
         self.add_buttons_light()
-        self.board = pygame.display.get_surface()
 
     def add_buttons(self):
         for i in self.buttons:
