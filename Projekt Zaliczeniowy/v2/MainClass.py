@@ -10,7 +10,7 @@ class Game(Window):
         pygame.init()
         super().__init__()
         self.board = pygame.display.get_surface()
-        self.FPS = 200
+        self.FPS = 30
         self.fps_clock = pygame.time.Clock()
         self.buttons = button.Button()
 
