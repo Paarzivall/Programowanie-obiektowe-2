@@ -1,12 +1,10 @@
 import FrameClass as frame
-import LetterClass as letters
 
 
 class Actions(object):
 
     def __init__(self):
         self.frames = frame.Frame()
-        # self.letters = letters.Letter()
 
     def move_frame(self, action):
         if action == "L":
@@ -17,6 +15,5 @@ class Actions(object):
         elif action == "O":
             print("Akcja O")
 
-    # def draw_actions(self):
-    #    self.letters.draw_letters()
-    #    self.frames.draw_frame()
+    def draw_actions(self):
+        self.frames.draw_frame()

@@ -9,7 +9,9 @@ class Button(Resize):
         self.board = pygame.display.get_surface()
         self.actions = Actions()
         self.buttons = {'L': '../images/button_L.png', 'R': '../images/button_R.png', 'O': '../images/button_O.png'}
-        self.buttons_light = {'L': '../images/button_L_light.png', 'R': '../images/button_R_light.png', 'O': '../images/button_O_light.png'}
+        self.buttons_light = {'L': '../images/button_L_light.png',
+                              'R': '../images/button_R_light.png',
+                              'O': '../images/button_O_light.png'}
         self.positions = {'L': (280, 165), 'R': (360, 165), 'O': (680, 165)}
         self.positions_light = {'L': (268, 155), 'R': (348, 155), 'O': (672, 155)}
         self.add_buttons()

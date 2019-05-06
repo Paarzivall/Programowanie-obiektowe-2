@@ -27,7 +27,7 @@ class Letter(Resize):
                         14: '../images/letter_S.png', 15: '../images/letter_X.png',
                         16: '../images/letter_Z.png'}
         self.letters_positions = {0: (268, 91), 1: (318, 91), 2: (368, 91), 3: (418, 91),
-                                  4: (468,91), 5: (518, 91), 6: (568, 91), 7: (618, 91),
+                                  4: (468, 91), 5: (518, 91), 6: (568, 91), 7: (618, 91),
                                   8: (668, 91), 9: (718, 91)}
         self.add_letters()
         self.picked_letters = {}
