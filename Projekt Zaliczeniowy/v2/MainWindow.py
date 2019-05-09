@@ -5,11 +5,10 @@ from ResizeClass import Resize
 
 class Window(Resize):
 
-    def __init__(self):
+    def __init__(self, background):
         """ Utworzenie 'czystego okienka' z tłem"""
 
-        self.background = pygame.image.load("../images/chest.png")
-        self.background = self.resize(self.background)
+        self.background = background
         self.frame = pygame.display.set_mode((960, 540))
         pygame.display.set_caption("Praca Zaliczeniowa - Mateusz Bugaj")
 

@@ -7,16 +7,6 @@ class Letter(Resize):
 
     def __init__(self):
         self.max_letters = 10
-        """self.letters = {'A': '../images/letter_A.png', 'B': '../images/letter_B.png',
-                        'C': '../images/letter_C.png', 'D': '../images/letter_D.png',
-                        'E': '../images/letter_E.png', 'F': '../images/letter_F.png',
-                        'G': '../images/letter_G.png', 'H': '../images/letter_H.png',
-                        'J': '../images/letter_J.png', 'K': '../images/letter_K.png',
-                        'N': '../images/letter_N.png', 'O': '../images/letter_O.png',
-                        'P': '../images/letter_P.png', 'R': '../images/letter_R.png',
-                        'S': '../images/letter_S.png', 'X': '../images/letter_X.png',
-                        'Z': '../images/letter_Z.png'}"""
-
         self.letters = {0: '../images/letter_A.png', 1: '../images/letter_B.png',
                         2: '../images/letter_C.png', 3: '../images/letter_D.png',
                         4: '../images/letter_E.png', 5: '../images/letter_F.png',
@@ -35,20 +25,35 @@ class Letter(Resize):
         self.board = pygame.display.get_surface()
 
     def add_letters(self):
+        """
+            wczytuje litery do słownika jako obiekty
+            z biblioteki pygame
+        """
         for i in self.letters:
             letter = pygame.image.load(self.letters[i])
             letter = self.resize(letter)
             self.letters.update({i: letter})
 
     def pick_letter(self):
+        """
+            Losuje z wczytanych obiektów 10 liter,
+            które będzie widział użytkownik
+        """
         for i in range(0, 10):
             x = self.random_letter()
             self.picked_letters[i] = self.letters[x]
             print(x)
 
     def draw_letters(self):
+        """
+            Metoda pozwalająca na rysowanie wylosowanych liter
+            na ekranie
+        """
         for i in self.picked_letters:
             self.board.blit(self.picked_letters[i], self.letters_positions[i])
 
     def random_letter(self):
+        """
+            Metoda losująca liczbę z zakresu 0 do 16
+        """
         return random.randint(0, 16)

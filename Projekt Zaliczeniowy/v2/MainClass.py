@@ -11,20 +11,25 @@ class Game(Window):
     def __init__(self):
         """zainicjowanie okienka"""
         pygame.init()
-        super().__init__()
+        self.background = pygame.image.load("../images/chest.png")
+        self.background = self.resize(self.background)
+        super().__init__(self.background)
         self.board = pygame.display.get_surface()
         self.FPS = 10
         self.clock = pygame.time.Clock()
         self.buttons = button.Button()
-        self.actions = Actions()
         self.letters = letters.Letter()
         self.frames = frame.Frame()
 
     def draw(self):
+        """
+            metoda pozwalająca rysować na ekranie,
+            wywołuje metody z innych klas odpowiedzialne
+            za poszczególne elementy
+        """
         self.draw_window()
-        self.buttons.draw_button()
         self.letters.draw_letters()
-        # self.actions.draw_actions()
+        self.buttons.draw_button()
         pygame.display.update()
 
     def run(self):
@@ -38,11 +43,6 @@ class Game(Window):
             if event.type == pygame.locals.QUIT:
                 pygame.quit()
                 return True
-            #else:
-            #    self.buttons.draw_button()
-
-    #def move_frame_main(self):
-    #    self.frames.move_frame()
 
 
 if __name__ == '__main__':
