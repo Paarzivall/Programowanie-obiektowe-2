@@ -18,6 +18,7 @@ class Game(Window):
         self.clock = pygame.time.Clock()
         self.buttons = button.Button()
         self.letters = letters.Letter()
+        self.letters.pick_letter()
 
     def draw(self):
         """
@@ -42,7 +43,3 @@ class Game(Window):
                 pygame.quit()
                 return True
 
-
-if __name__ == '__main__':
-    game = Game()
-    game.run()

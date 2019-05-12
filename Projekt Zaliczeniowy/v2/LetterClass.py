@@ -21,7 +21,7 @@ class Letter(Resize):
                                   8: (668, 91), 9: (718, 91)}
         self.add_letters()
         self.picked_letters = {}
-        self.pick_letter()
+        # self.pick_letter()
         self.board = pygame.display.get_surface()
 
     def add_letters(self):

@@ -7,7 +7,7 @@ class Window(Resize):
 
     def __init__(self, background):
         """ Utworzenie 'czystego okienka' z tłem"""
-
+        pygame.init()
         self.background = background
         self.frame = pygame.display.set_mode((960, 540))
         pygame.display.set_caption("Praca Zaliczeniowa - Mateusz Bugaj")

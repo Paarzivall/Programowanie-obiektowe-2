@@ -12,12 +12,33 @@ class Button(Resize):
         self.buttons_light = {'L': '../images/button_L_light.png',
                               'R': '../images/button_R_light.png',
                               'O': '../images/button_O_light.png'}
+        self.buttons_controller = {'Start': '../images/button_start.png',
+                                   'Stop': '../images/button_end.png',
+                                   'Again': '../images/button_jeszcze_raz.png'}
+        self.buttons_controller_light = {'Start': '../images/button_start_light.png',
+                                   'Stop': '../images/button_end_light.png',
+                                   'Again': '../images/button_jeszcze_raz_light.png'}
         self.positions = {'L': (280, 165), 'R': (360, 165), 'O': (680, 165)}
         self.positions_light = {'L': (268, 155), 'R': (348, 155), 'O': (672, 155)}
         self.add_buttons()
         self.add_buttons_light()
+        self.add_button_controller()
+        self.add_button_controller_light()
         self.x = 265
         self.y = 90
+        self.compare_number = 0
+
+    def add_button_controller(self):
+        for i in self.buttons_controller:
+            button = pygame.image.load(self.buttons_controller[i])
+            button = self.resize(button)
+            self.buttons_controller.update({i: button})
+
+    def add_button_controller_light(self):
+        for i in self.buttons_controller_light:
+            button = pygame.image.load(self.buttons_controller_light[i])
+            button = self.resize(button)
+            self.buttons_controller_light.update({i: button})
 
     def add_buttons(self):
         """Wczytuje przyciski jako obiekty z biblioteki pygame"""
@@ -52,7 +73,9 @@ class Button(Resize):
                         if i == 'R':
                             if self.x <= 615:
                                 self.actions.move_frame(self.x, self.y, i)
+                                self.actions.compare(self.compare_number)
                                 self.x += 50
+                                self.compare_number += 1
                             else:
                                 self.x = 265
                                 self.actions.move_frame(self.x, self.y, i)
