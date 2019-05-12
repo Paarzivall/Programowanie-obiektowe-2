@@ -25,20 +25,35 @@ class Letter(Resize):
         self.board = pygame.display.get_surface()
 
     def add_letters(self):
+        """
+            wczytuje litery do słownika jako obiekty
+            z biblioteki pygame
+        """
         for i in self.letters:
             letter = pygame.image.load(self.letters[i])
             letter = self.resize(letter)
             self.letters.update({i: letter})
 
     def pick_letter(self):
+        """
+            Losuje z wczytanych obiektów 10 liter,
+            które będzie widział użytkownik
+        """
         for i in range(0, 10):
             x = self.random_letter()
             self.picked_letters[i] = self.letters[x]
             print(x)
 
     def draw_letters(self):
+        """
+            Metoda pozwalająca na rysowanie wylosowanych liter
+            na ekranie
+        """
         for i in self.picked_letters:
             self.board.blit(self.picked_letters[i], self.letters_positions[i])
 
     def random_letter(self):
+        """
+            Metoda losująca liczbę z zakresu 0 do 16
+        """
         return random.randint(0, 16)

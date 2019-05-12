@@ -8,16 +8,21 @@ class Actions(object):
         self.frames = frame.Frame()
         self.x = 0
 
-    def move_frame(self, action=None):
+    def move_frame(self, x, y, action=None):
+        """
+            metoda pozwalająca na poruszenie ramki na ekranie
+        """
         if action == "L":
             print("Akcja L")
+            self.frames.draw_frame(x, y)
         elif action == "R":
             print("Akcja R")
-            if self.x <= 8:
-                self.frames.draw_frame(self.x)
-                self.x += 1
-            else:
-                self.x = 0
-                self.frames.draw_frame(self.x)
+            self.frames.draw_frame(x, y)
         elif action == "O":
             print("Akcja O")
+
+    def draw_frame(self, x, y):
+        """
+            metoda pozwalająca na narysowanie naszej ramki na ekranie
+        """
+        self.frames.draw_frame(x, y)
