@@ -7,16 +7,6 @@ class Letter(Resize):
 
     def __init__(self):
         self.max_letters = 10
-        """self.letters = {'A': '../images/letter_A.png', 'B': '../images/letter_B.png',
-                        'C': '../images/letter_C.png', 'D': '../images/letter_D.png',
-                        'E': '../images/letter_E.png', 'F': '../images/letter_F.png',
-                        'G': '../images/letter_G.png', 'H': '../images/letter_H.png',
-                        'J': '../images/letter_J.png', 'K': '../images/letter_K.png',
-                        'N': '../images/letter_N.png', 'O': '../images/letter_O.png',
-                        'P': '../images/letter_P.png', 'R': '../images/letter_R.png',
-                        'S': '../images/letter_S.png', 'X': '../images/letter_X.png',
-                        'Z': '../images/letter_Z.png'}"""
-
         self.letters = {0: '../images/letter_A.png', 1: '../images/letter_B.png',
                         2: '../images/letter_C.png', 3: '../images/letter_D.png',
                         4: '../images/letter_E.png', 5: '../images/letter_F.png',

@@ -1,9 +1,8 @@
 import pygame
 from MainWindow import Window
 import ButtonClass as button
-import FrameClass as frame
 import LetterClass as letters
-from ActionClass import Actions
+import ActionClass as action
 
 
 class Game(Window):
@@ -16,15 +15,14 @@ class Game(Window):
         self.FPS = 10
         self.clock = pygame.time.Clock()
         self.buttons = button.Button()
-        self.actions = Actions()
+        self.actions = action.Actions()
         self.letters = letters.Letter()
-        self.frames = frame.Frame()
 
     def draw(self):
         self.draw_window()
         self.buttons.draw_button()
         self.letters.draw_letters()
-        # self.actions.draw_actions()
+        self.actions.move_frame()
         pygame.display.update()
 
     def run(self):
@@ -38,11 +36,6 @@ class Game(Window):
             if event.type == pygame.locals.QUIT:
                 pygame.quit()
                 return True
-            #else:
-            #    self.buttons.draw_button()
-
-    #def move_frame_main(self):
-    #    self.frames.move_frame()
 
 
 if __name__ == '__main__':
