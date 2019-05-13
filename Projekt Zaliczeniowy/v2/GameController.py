@@ -69,7 +69,7 @@ class Controller(Window):
                                 sys.exit()
                 else:
                     self.board.blit(self.buttons.buttons_controller[i], self.positions[i])
-                # pygame.display.update()
+                pygame.display.update()
 
     def start_game(self):
         game = Game()

@@ -12,13 +12,12 @@ class Game(Window):
         pygame.init()
         self.background = pygame.image.load("../images/chest.png")
         self.background = self.resize(self.background)
+        self.actions = action.Actions()
         super().__init__(self.background)
         self.board = pygame.display.get_surface()
         self.FPS = 10
         self.clock = pygame.time.Clock()
         self.buttons = button.Button()
-        self.letters = letters.Letter()
-        self.letters.pick_letter()
 
     def draw(self):
         """
@@ -27,7 +26,6 @@ class Game(Window):
             za poszczególne elementy
         """
         self.draw_window()
-        self.letters.draw_letters()
         self.buttons.draw_button()
         pygame.display.update()
 

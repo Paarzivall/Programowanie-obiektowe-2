@@ -59,6 +59,7 @@ class Button(Resize):
             w przeciwnym wypadku rysuje przycisk 'akcji' oraz rysuje obiekt ramki oraz pozwala
             nią poruszać
         """
+        self.actions.draw_letters()
         mouse = pygame.mouse.get_pos()
         click = pygame.mouse.get_pressed()
         self.actions.draw_frame(self.x, self.y)
@@ -73,12 +74,14 @@ class Button(Resize):
                         if i == 'R':
                             if self.x <= 615:
                                 self.actions.move_frame(self.x, self.y, i)
-                                self.actions.compare(self.compare_number)
                                 self.x += 50
                                 self.compare_number += 1
                             else:
                                 self.x = 265
                                 self.actions.move_frame(self.x, self.y, i)
+                                self.compare_number += 1
+                            if self.compare_number > 8:
+                                self.compare_number = 0
                         elif i == 'L':
                             if self.x >= 315:
                                 self.actions.move_frame(self.x, self.y, i)
@@ -86,6 +89,8 @@ class Button(Resize):
                             else:
                                 self.x = 665
                                 self.actions.move_frame(self.x, self.y, i)
+                        elif i == 'O':
+                            self.actions.compare(self.compare_number)
             else:
                 self.board.blit(self.buttons[i], self.positions[i])
             pygame.display.update()

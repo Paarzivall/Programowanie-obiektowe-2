@@ -1,17 +1,17 @@
 import FrameClass as frame
-from LetterClass import Letter
+import LetterClass as letter
 
-class Actions(Letter):
+
+class Actions(object):
 
     def __init__(self):
-        super().__init__()
         self.frames = frame.Frame()
-        # self.letters = letters.Letter()
+        self.letters = letter.Letter()
         self.x = 0
         self.compared_letters = {0: (0, 1), 1: (1, 2), 2: (2, 3),
                                  3: (3, 4), 4: (4, 5), 5: (5, 6),
                                  6: (6, 7), 7: (7, 8), 8: (8, 9)}
-        # self.picked_letters = letters.picked_letters()
+        self.letters.random_letter()
 
     def move_frame(self, x, y, action=None):
         """
@@ -26,8 +26,8 @@ class Actions(Letter):
         elif action == "O":
             print("Akcja O")
 
-    def draw_letter(self):
-        self.draw_letter()
+    def draw_letters(self):
+        self.letters.draw_letters()
 
     def draw_frame(self, x, y):
         """
@@ -36,7 +36,20 @@ class Actions(Letter):
         self.frames.draw_frame(x, y)
 
     def compare(self, compare_number):
-        for i in self.picked_letters:
-            if i == compare_number[0]:
-                print(self.picked_letters[i])
-
+        com = self.compared_letters[compare_number]
+        index = 0
+        for i in self.letters.picked_letters:
+            if index == com[0]:
+                tmp = i
+            elif index == com[1]:
+                tmp2 = i
+            index += 1
+        if ord(tmp2) < ord(tmp):
+            self.letters.picked_letters[com[0]] = tmp2
+            self.letters.picked_letters[com[1]] = tmp
+        elif ord(tmp2) == ord(tmp):
+            self.letters.picked_letters[com[0]] = tmp2
+            self.letters.picked_letters[com[1]] = tmp
+        else:
+            print("Dupa")
+        print(compare_number, self.compared_letters[compare_number])
