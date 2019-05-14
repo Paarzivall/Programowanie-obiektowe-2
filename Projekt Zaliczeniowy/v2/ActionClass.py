@@ -1,6 +1,7 @@
 import FrameClass as frame
 import LetterClass as letter
-
+from tkinter import *
+from tkinter import messagebox
 
 class Actions(object):
 
@@ -44,12 +45,29 @@ class Actions(object):
             elif index == com[1]:
                 tmp2 = i
             index += 1
-        if ord(tmp2) < ord(tmp):
-            self.letters.picked_letters[com[0]] = tmp2
-            self.letters.picked_letters[com[1]] = tmp
-        elif ord(tmp2) == ord(tmp):
+        if tmp2 <= tmp:
             self.letters.picked_letters[com[0]] = tmp2
             self.letters.picked_letters[com[1]] = tmp
         else:
-            print("Dupa")
-        print(compare_number, self.compared_letters[compare_number])
+            Tk().wm_withdraw()  # to hide the main window
+            messagebox.showinfo('NIEPOPRAWNY RUCH',
+                                'Niepoprawny ruch.\nLitery które chcesz zamienić są już w dobrej kolejności')
+
+    def when_end(self):
+        print(self.letters.sorted_picked_letters)
+
+    def recommended_move(self, compare_number):
+        com = self.compared_letters[compare_number]
+        index = 0
+        for i in self.letters.picked_letters:
+            if index == com[0]:
+                tmp = i
+            elif index == com[1]:
+                tmp2 = i
+            index += 1
+        if ord(tmp2) < ord(tmp):
+            return True
+        elif ord(tmp) == ord(tmp2):
+            return False
+        else:
+            return False

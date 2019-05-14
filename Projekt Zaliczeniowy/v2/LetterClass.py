@@ -21,8 +21,9 @@ class Letter(Resize):
                                   8: (668, 91), 9: (718, 91)}
         self.add_letters()
         self.picked_letters = []
-        # self.pick_letter()
-        self.printuj()
+        self.sorted_picked_letters = self.picked_letters
+        self.sorted()
+        # self.printuj()
         self.board = pygame.display.get_surface()
 
     def add_letters(self):
@@ -54,3 +55,18 @@ class Letter(Resize):
             Metoda losująca liczbę z zakresu 0 do 16
         """
         self.picked_letters = random.sample(self.letters.keys(), 10)
+        for passnum in range(len(self.sorted_picked_letters) - 1, 0, -1):
+            for i in range(passnum):
+                if self.sorted_picked_letters[i] > self.sorted_picked_letters[i + 1]:
+                    temp = self.sorted_picked_letters[i]
+                    self.sorted_picked_letters[i] = self.sorted_picked_letters[i + 1]
+                    self.sorted_picked_letters[i + 1] = temp
+
+    def sorted(self):
+        for x in range(len(self.sorted_picked_letters) - 1, 0, -1):
+            for i in range(x):
+                if self.sorted_picked_letters[i] > self.sorted_picked_letters[i + 1]:
+                    temp = self.sorted_picked_letters[i]
+                    self.sorted_picked_letters[i] = self.sorted_picked_letters[i + 1]
+                    self.sorted_picked_letters[i + 1] = temp
+

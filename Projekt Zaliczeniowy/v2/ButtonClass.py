@@ -1,6 +1,8 @@
 import pygame
 import ActionClass as actions
 from ResizeClass import Resize
+from tkinter import *
+from tkinter import messagebox
 
 
 class Button(Resize):
@@ -82,15 +84,17 @@ class Button(Resize):
                                 self.compare_number += 1
                             if self.compare_number > 8:
                                 self.compare_number = 0
+
+                            if self.actions.recommended_move(self.compare_number) == False:
+                                Tk().wm_withdraw()  # to hide the main window
+                                messagebox.showinfo('NIEPOPRAWNY RUCH', 'Jesteś Dupa a nie gracz')
                         elif i == 'L':
-                            if self.x >= 315:
-                                self.actions.move_frame(self.x, self.y, i)
-                                self.x -= 50
-                            else:
-                                self.x = 665
-                                self.actions.move_frame(self.x, self.y, i)
+                            Tk().wm_withdraw()  # to hide the main window
+                            messagebox.showinfo('NIEPOPRAWNY RUCH', 'Niepoprawny ruch.\nW sortowaniu bąbelkowym możesz poruszać się tylko do przodu')
                         elif i == 'O':
                             self.actions.compare(self.compare_number)
+                            # print(f"O {self.compare_number}")
             else:
                 self.board.blit(self.buttons[i], self.positions[i])
             pygame.display.update()
+            self.actions.when_end()
