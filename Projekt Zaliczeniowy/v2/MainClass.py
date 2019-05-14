@@ -40,4 +40,3 @@ class Game(Window):
             if event.type == pygame.locals.QUIT:
                 pygame.quit()
                 return True
-

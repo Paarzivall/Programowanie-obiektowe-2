@@ -21,9 +21,9 @@ class Letter(Resize):
                                   8: (668, 91), 9: (718, 91)}
         self.add_letters()
         self.picked_letters = []
-        self.sorted_picked_letters = self.picked_letters
+        self.random_letter()
+        self.sorted_picked_letters = self.picked_letters.copy()
         self.sorted()
-        # self.printuj()
         self.board = pygame.display.get_surface()
 
     def add_letters(self):
@@ -36,9 +36,8 @@ class Letter(Resize):
             letter = self.resize(letter)
             self.letters.update({i: letter})
 
-    def printuj(self):
-        for i in self.picked_letters:
-            print(f"{i}")
+    def printuj(self, lista):
+        print(lista)
 
     def draw_letters(self):
         """
@@ -55,14 +54,12 @@ class Letter(Resize):
             Metoda losująca liczbę z zakresu 0 do 16
         """
         self.picked_letters = random.sample(self.letters.keys(), 10)
-        for passnum in range(len(self.sorted_picked_letters) - 1, 0, -1):
-            for i in range(passnum):
-                if self.sorted_picked_letters[i] > self.sorted_picked_letters[i + 1]:
-                    temp = self.sorted_picked_letters[i]
-                    self.sorted_picked_letters[i] = self.sorted_picked_letters[i + 1]
-                    self.sorted_picked_letters[i + 1] = temp
 
     def sorted(self):
+        """
+            Metoda w której zaimplementowane jest sortowanie bąbelkowe służy ona do posortowania kopii
+            listy z wylosowanymi literami wyświetlanymi na ekranie
+        """
         for x in range(len(self.sorted_picked_letters) - 1, 0, -1):
             for i in range(x):
                 if self.sorted_picked_letters[i] > self.sorted_picked_letters[i + 1]:
