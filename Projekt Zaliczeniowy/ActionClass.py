@@ -19,14 +19,9 @@ class Actions(object):
         """
             metoda pozwalająca na poruszenie ramki na ekranie
         """
-        if action == "L":
-            print("Akcja L")
+        if action == "R":
+            # print("Akcja R")
             self.frames.draw_frame(x, y)
-        elif action == "R":
-            print("Akcja R")
-            self.frames.draw_frame(x, y)
-        elif action == "O":
-            print("Akcja O")
 
     def draw_frame(self, x, y):
         """
