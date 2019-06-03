@@ -13,6 +13,13 @@ screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 root.geometry(f'{int(screen_width/2)}x{int(screen_height/2)}')
 canvas = Canvas(root, bg="white", width=screen_width/2, height=screen_height/2)
+root.columnconfigure(0, pad=2)
+root.columnconfigure(1, pad=2)
+root.columnconfigure(2, pad=2)
+root.columnconfigure(3, pad=2)
+root.columnconfigure(4, pad=2)
+root.columnconfigure(5, pad=2)
+root.columnconfigure(6, pad=2)
 
 
 def triangle_function():
