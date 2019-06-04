@@ -78,7 +78,7 @@ class AngleValidator(Validated):
         except ValueError:
             raise ValueError("Błędna Wartość")
         else:
-            if value <= 90.0:
+            if value <= 120.0:
                 return value
             else:
                 raise ValueError("Błędna Wartość")

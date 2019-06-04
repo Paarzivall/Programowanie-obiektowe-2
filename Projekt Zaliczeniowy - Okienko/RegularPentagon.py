@@ -20,13 +20,13 @@ class RegularPentagon(ConvexPolygon):
     def set_wektor(self):
         a = self.lenght_of_side_a
         if a <= 10:
-            self.wektor = 10
+            self.wektor = 8
         else:
             self.wektor = 5
 
     def set_skala(self):
         a = self.lenght_of_side_a
-        if a <= 10:
+        if a <= 5:
             self.skala = 25
         else:
             self.skala = 10
@@ -43,13 +43,24 @@ class RegularPentagon(ConvexPolygon):
 
     def draw(self):
         a = self.lenght_of_side_a
-        A = (self.wektor, self.wektor/2)
+        """A = (self.wektor, self.wektor/2)
         B = (self.wektor + a, self.wektor/2)
         hc = (2 * (a ** 2 * a ** 2 + a ** 2 * a ** 2 + a ** 2 * a ** 2) - (a ** 4 + a ** 4 + a ** 4)) ** 0.5 / (2. * a)
         dx = (a ** 2 - hc ** 2) ** 0.5
         if abs((a - dx) ** 2 + hc ** 2 - a ** 2) > 0.01: dx = -dx
         C = (self.wektor + dx + a, self.wektor/2 + hc)
         D = (self.wektor + dx, self.wektor + 2*a/3)
-        E = ((self.wektor + a) / 2, (a * math.sqrt(3)) /2 + a)
-        coords = [int((x + 1) * self.skala) for x in A + B + C + D + E]
+        E = ((self.wektor + a) / 2, (a * math.sqrt(3)) /2 + a)"""
+        # coords = [int((x + 1) * self.skala) for x in A + B + C + D + E]
+        # return coords
+        start_x = self.wektor
+        start_y = self.wektor
+        coords = []
+        angle = 72
+        for i in range(5):
+            end_x = start_x + a * math.cos(math.radians(angle * i))
+            end_y = start_y + a * math.sin(math.radians(angle * i))
+            coords.append([self.skala * start_x, self. skala * start_y])
+            start_x = end_x
+            start_y = end_y
         return coords

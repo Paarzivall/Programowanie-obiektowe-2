@@ -11,8 +11,25 @@ class RegularOctagon(ConvexPolygon):
     def __init__(self, fill_colour, outline_colour):
         super().__init__(fill_colour, outline_colour)
         self.take_parameters()
-        print(f'Pole powierzchni:\t {round(self.area(), 2)}')
-        print(f'Obwód:\t {round(self.perimeter(), 2)}')
+        self.set_skala()
+        self.set_wektor()
+
+    def set_wektor(self):
+        a = self.lenght_of_side_a
+        if a <= 10:
+            self.wektor = 8
+        else:
+            self.wektor = 5
+
+    def set_skala(self):
+        a = self.lenght_of_side_a
+        if a <= 5:
+            self.skala = 22
+        else:
+            self.skala = 10
+
+    def get_skala(self):
+        return self.skala
 
     def take_parameters(self):
         self.lenght_of_side_a = input("Podaj długość boku ośmiokąta foremnego:\t")
@@ -25,4 +42,15 @@ class RegularOctagon(ConvexPolygon):
         return 8 * self.lenght_of_side_a
 
     def draw(self):
-        pass
+        a = self.lenght_of_side_a
+        start_x = self.wektor
+        start_y = self.wektor
+        coords = []
+        angle = 45
+        for i in range(8):
+            end_x = start_x + a * math.cos(math.radians(angle * i))
+            end_y = start_y + a * math.sin(math.radians(angle * i))
+            coords.append([self.skala * start_x, self.skala * start_y])
+            start_x = end_x
+            start_y = end_y
+        return coords
