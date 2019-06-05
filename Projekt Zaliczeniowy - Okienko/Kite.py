@@ -38,32 +38,3 @@ class Kite(ConvexQuadrilateral):
 
         coords = [int((x + 1) * self.skala) for x in A + C + B + D]
         return coords
-
-"""
-     def draw(self):
-            a = self.lenght_of_side_a
-            b = self.lenght_of_side_b
-    
-            start_x = self.wektor
-            start_y = self.wektor
-            coords = []
-            angle1 = self.angle1
-            angle2 = self.angle2
-            angle3 = self.angle4
-            for i in range(4):
-                if i == 1:
-                    end_x = start_x + a * math.cos(math.radians(angle1 * i))
-                    end_y = start_y + a * math.sin(math.radians(angle1 * i))
-                elif i == 2:
-                    end_x = start_x + b * math.cos(math.radians(angle2 * i))
-                    end_y = start_y + b * math.sin(math.radians(angle2 * i))
-                elif i == 3:
-                    end_x = start_x + b * math.cos(math.radians(angle3 * i))
-                    end_y = start_y + b * math.sin(math.radians(angle3 * i))
-                else:
-                    end_x = start_x + a * math.cos(math.radians(angle2 * i))
-                    end_y = start_y + a * math.sin(math.radians(angle2 * i))
-                coords.append([self.skala * start_x, self.skala * start_y])
-                start_x = end_x
-                start_y = end_y
-            return coords"""

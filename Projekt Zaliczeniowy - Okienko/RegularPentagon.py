@@ -43,16 +43,6 @@ class RegularPentagon(ConvexPolygon):
 
     def draw(self):
         a = self.lenght_of_side_a
-        """A = (self.wektor, self.wektor/2)
-        B = (self.wektor + a, self.wektor/2)
-        hc = (2 * (a ** 2 * a ** 2 + a ** 2 * a ** 2 + a ** 2 * a ** 2) - (a ** 4 + a ** 4 + a ** 4)) ** 0.5 / (2. * a)
-        dx = (a ** 2 - hc ** 2) ** 0.5
-        if abs((a - dx) ** 2 + hc ** 2 - a ** 2) > 0.01: dx = -dx
-        C = (self.wektor + dx + a, self.wektor/2 + hc)
-        D = (self.wektor + dx, self.wektor + 2*a/3)
-        E = ((self.wektor + a) / 2, (a * math.sqrt(3)) /2 + a)"""
-        # coords = [int((x + 1) * self.skala) for x in A + B + C + D + E]
-        # return coords
         start_x = self.wektor
         start_y = self.wektor
         coords = []
